@@ -13121,11 +13121,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Hannah\\Desktop\\Web III\\Birdwatcher\\Birdwatcher.csproj",
+      "projectUniqueName": "C:\\Users\\Hannah\\Desktop\\Web III\\Birdwatcher\\Birdwatcher.csproj",
       "projectName": "Birdwatcher",
-      "projectPath": "c:\\Users\\Hannah\\Desktop\\Web III\\Birdwatcher\\Birdwatcher.csproj",
+      "projectPath": "C:\\Users\\Hannah\\Desktop\\Web III\\Birdwatcher\\Birdwatcher.csproj",
       "packagesPath": "C:\\Users\\Hannah\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Hannah\\Desktop\\Web III\\Birdwatcher\\obj\\",
+      "outputPath": "C:\\Users\\Hannah\\Desktop\\Web III\\Birdwatcher\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
