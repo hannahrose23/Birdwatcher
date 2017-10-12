@@ -1,0 +1,10 @@
+c:\Users\Hannah\Desktop\Web III\Birdwatcher\bin\Debug\netcoreapp2.0\Birdwatcher.deps.json
+c:\Users\Hannah\Desktop\Web III\Birdwatcher\bin\Debug\netcoreapp2.0\Birdwatcher.runtimeconfig.json
+c:\Users\Hannah\Desktop\Web III\Birdwatcher\bin\Debug\netcoreapp2.0\Birdwatcher.runtimeconfig.dev.json
+c:\Users\Hannah\Desktop\Web III\Birdwatcher\bin\Debug\netcoreapp2.0\Birdwatcher.dll
+c:\Users\Hannah\Desktop\Web III\Birdwatcher\bin\Debug\netcoreapp2.0\Birdwatcher.pdb
+c:\Users\Hannah\Desktop\Web III\Birdwatcher\obj\Debug\netcoreapp2.0\Birdwatcher.csproj.CoreCompileInputs.cache
+c:\Users\Hannah\Desktop\Web III\Birdwatcher\obj\Debug\netcoreapp2.0\Birdwatcher.AssemblyInfoInputs.cache
+c:\Users\Hannah\Desktop\Web III\Birdwatcher\obj\Debug\netcoreapp2.0\Birdwatcher.AssemblyInfo.cs
+c:\Users\Hannah\Desktop\Web III\Birdwatcher\obj\Debug\netcoreapp2.0\Birdwatcher.dll
+c:\Users\Hannah\Desktop\Web III\Birdwatcher\obj\Debug\netcoreapp2.0\Birdwatcher.pdb
