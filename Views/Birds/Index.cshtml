@@ -49,7 +49,7 @@
                 @Html.DisplayFor(modelItem => item.Region)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImageLocation)
+                <img src="/images/@(item.ImageLocation)"/>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
