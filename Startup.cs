@@ -12,6 +12,7 @@ using Birdwatcher.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Http;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Birdwatcher
 {
@@ -53,11 +54,17 @@ namespace Birdwatcher
             // Configure the scope
             options.Scope.Clear();
             options.Scope.Add("openid");
+            options.Scope.Add("profile");
+            options.Scope.Add("email");
 
             options.CallbackPath = new PathString("/signin-auth0");
 
             // Configure the Claims Issuer to be Auth0
             options.ClaimsIssuer = "Auth0";
+
+            options.TokenValidationParameters = new TokenValidationParameters{
+                NameClaimType = "name"
+            };
 
             options.Events = new OpenIdConnectEvents
             {

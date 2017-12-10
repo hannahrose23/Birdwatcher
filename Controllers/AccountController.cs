@@ -4,6 +4,10 @@ using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Birdwatcher.Models;
+using System.Linq;
+using System.Security.Claims;
+
 
 namespace Birdwatcher.Controllers
 {
@@ -29,6 +33,17 @@ namespace Birdwatcher.Controllers
         /// application to see the in claims populated from the Auth0 ID Token
         /// </summary>
         /// <returns></returns>
+
+        [Authorize]
+        public IActionResult Profile()
+        {
+            return View(new UserProfileViewModel()
+            {
+                Name = User.Identity.Name,
+                EmailAddress = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value
+            });
+        }
+
         [Authorize]
         public IActionResult Claims()
         {
