@@ -19,9 +19,28 @@ namespace Birdwatcher.Controllers
         }
 
         // GET: Birds
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString, string birdRegion)
         {
-            return View(await _context.Bird.ToListAsync());
+            var birds = from b in _context.Bird
+                select b;
+
+            IQueryable<string> regionQuery = from b in _context.Bird
+                orderby b.Region
+                select b.Region;
+
+            if (!String.IsNullOrEmpty(searchString)){
+                birds = birds.Where(x => x.Name.Contains(searchString));
+            }
+
+            if (!String.IsNullOrEmpty(birdRegion)){
+                birds = birds.Where(y=>y.Region == birdRegion || y.Region == "All");
+            }
+
+            var birdRegionVM = new RegionViewModel();
+            birdRegionVM.regions = new SelectList(await regionQuery.Distinct().ToListAsync());
+            birdRegionVM.birds = await birds.ToListAsync();
+
+            return View(birdRegionVM);
         }
 
         // GET: Birds/Details/5

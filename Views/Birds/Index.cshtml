@@ -1,4 +1,4 @@
-@model IEnumerable<Birdwatcher.Models.Bird>
+@model Birdwatcher.Models.RegionViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -9,26 +9,35 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<form asp-controller="Birds" asp-action="Index" method="get">
+    <p>
+        <select asp-for="birdRegion" asp-items="Model.regions">
+            <option value=""></option>
+        </select>
+        Bird Name: <input type="text" name="SearchString"/>
+        <input type = "submit" value="Filter" />
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Name)
+                    @Html.DisplayNameFor(model => model.birds[0].Name)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Color)
+                    @Html.DisplayNameFor(model => model.birds[0].Color)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Region)
+                    @Html.DisplayNameFor(model => model.birds[0].Region)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ImageLocation)
+                    @Html.DisplayNameFor(model => model.birds[0].ImageLocation)
                 </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.birds) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
