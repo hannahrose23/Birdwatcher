@@ -11,9 +11,10 @@ using System;
 namespace Birdwatcher.Migrations
 {
     [DbContext(typeof(BirdwatcherContext))]
-    partial class BirdwatcherContextModelSnapshot : ModelSnapshot
+    [Migration("20171213021458_SecondCreate")]
+    partial class SecondCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
