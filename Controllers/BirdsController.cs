@@ -19,7 +19,7 @@ namespace Birdwatcher.Controllers
         }
 
         // GET: Birds
-        public async Task<IActionResult> Index(string searchString, string birdRegion)
+        public async Task<IActionResult> Index(string searchString, string birdRegion, string birdColor)
         {
             var birds = from b in _context.Bird
                 select b;
@@ -33,7 +33,11 @@ namespace Birdwatcher.Controllers
             }
 
             if (!String.IsNullOrEmpty(birdRegion)){
-                birds = birds.Where(y=>y.Region == birdRegion || y.Region == "All");
+                birds = birds.Where(y=>y.Region.Contains(birdRegion) || y.Region == "All");
+            }
+
+            if (!String.IsNullOrEmpty(birdColor)){
+                birds = birds.Where(z=>z.Color.Contains(birdColor));
             }
 
             var birdRegionVM = new RegionViewModel();

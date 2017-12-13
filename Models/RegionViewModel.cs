@@ -6,5 +6,6 @@ namespace Birdwatcher.Models{
         public List<Bird> birds;
         public SelectList regions;
         public string birdRegion{get; set;}
+        public string birdColor{get; set;}
     }
 }

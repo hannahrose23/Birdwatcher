@@ -11,9 +11,24 @@
 </p>
 <form asp-controller="Birds" asp-action="Index" method="get">
     <p>
-        <select asp-for="birdRegion" asp-items="Model.regions">
+        Region:
+        <select asp-for="birdRegion">
             <option value=""></option>
+            <option value="All">Any</option>
+            <option value="Central">Central</option>
+            <option value ="Northeast">Northeast</option>
         </select>
+
+        Color:
+        <select asp-for="birdColor">
+            <option value=""></option>
+            <option value="Black">Black</option>
+            <option value="Brown">Brown</option>
+            <option value="Gray">Gray</option>
+            <option value="Red">Red</option>
+            <option value="White">White</option>
+        </select>
+
         Bird Name: <input type="text" name="SearchString"/>
         <input type = "submit" value="Filter" />
     </p>
