@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 using Birdwatcher.Models;
 
 namespace Birdwatcher.Controllers
@@ -65,6 +66,8 @@ namespace Birdwatcher.Controllers
             return View(bird);
         }
 
+
+        [Authorize]
         // GET: Birds/Create
         public IActionResult Create()
         {
