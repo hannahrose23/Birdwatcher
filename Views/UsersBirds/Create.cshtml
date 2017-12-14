@@ -2,24 +2,27 @@
 
 @{
     ViewData["Title"] = "Create";
+
+    var bird= Context.Request.Query["bird"];
+    var name = @User.Identity.Name;
+    var image = Context.Request.Query["imagelocation"];
 }
 
-<h2>Create</h2>
+<h2>Add @(bird) to My Bird Log</h2>
 
-<h4>UsersBirds</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+                <!--<label asp-for="Name" class="control-label"></label>-->
+                <input type = "hidden" asp-for="Name" class="form-control" value="@(name)"/>
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Bird" class="control-label"></label>
-                <input asp-for="Bird" class="form-control" />
+                <!--<label asp-for="Bird" class="control-label"></label>-->
+                <input type="hidden" asp-for="Bird" class="form-control" value="@(bird)"/>
                 <span asp-validation-for="Bird" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -28,8 +31,8 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ImageLocation" class="control-label"></label>
-                <input asp-for="ImageLocation" class="form-control" />
+                <!--<label asp-for="ImageLocation" class="control-label"></label>-->
+                <input type="hidden" asp-for="ImageLocation" class="form-control" value="@(image)"/>
                 <span asp-validation-for="ImageLocation" class="text-danger"></span>
             </div>
             <div class="form-group">
