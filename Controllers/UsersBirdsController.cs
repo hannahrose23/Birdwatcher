@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -18,10 +19,18 @@ namespace Birdwatcher.Controllers
             _context = context;
         }
 
+        [Authorize]
         // GET: UsersBirds
         public async Task<IActionResult> Index()
         {
-            return View(await _context.UsersBirds.ToListAsync());
+            var birds = from b in _context.UsersBirds
+                select b;
+
+            if(!String.IsNullOrEmpty(@User.Identity.Name)){
+                birds = birds.Where(x => x.Name == @User.Identity.Name);
+            }
+
+            return View(await birds.ToListAsync());
         }
 
         // GET: UsersBirds/Details/5
@@ -42,6 +51,8 @@ namespace Birdwatcher.Controllers
             return View(usersBirds);
         }
 
+
+        [Authorize]
         // GET: UsersBirds/Create
         public IActionResult Create()
         {
@@ -51,6 +62,7 @@ namespace Birdwatcher.Controllers
         // POST: UsersBirds/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Name,Bird,Description,ImageLocation,DateSeen")] UsersBirds usersBirds)
